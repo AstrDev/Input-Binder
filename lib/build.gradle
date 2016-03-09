@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+ext {
+	PUBLISH_GROUP_ID = 'com.artufimtcev'
+	PUBLISH_ARTIFACT_ID = 'input-binder'
+	PUBLISH_VERSION = '0.0.1'
+}
+
+apply from: '../release.gradle'
+
 android {
 	compileSdkVersion 23
 	buildToolsVersion "23.0.2"
@@ -13,7 +21,7 @@ android {
 		minSdkVersion 8
 		targetSdkVersion 23
 		versionCode 1
-		versionName "1.0"
+		versionName PUBLISH_VERSION
 	}
 
 	buildTypes {
