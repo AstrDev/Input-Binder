@@ -1,0 +1,7 @@
+<resources>
+	<string name="app_name">InputBinderSample</string>
+
+	<string name="name">name</string>
+	<string name="surname">name</string>
+	<string name="age">name</string>
+</resources>

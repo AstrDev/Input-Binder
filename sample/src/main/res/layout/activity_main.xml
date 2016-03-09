@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+		<variable name="viewModel" type="com.astrdev.inputbindersample.viewmodel.MainViewModel"/>
+		<import type="com.astrdev.inputbindersample.viewmodel.MainViewModel"/>
+	</data>
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				  android:layout_width="match_parent"
+				  android:layout_height="match_parent"
+				  android:orientation="vertical">
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="User Name"
+			app:object="@{viewModel}"
+			app:property='@{"name"}'/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="User Surname"
+			app:object="@{viewModel}"
+			app:property='@{"surname"}'/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="User Age"
+			app:object="@{viewModel}"
+			app:property='@{"age"}'
+			android:inputType="numberDecimal"/>
+
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.name}"/>
+
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.surname}"/>
+
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.age}"/>
+	</LinearLayout>
+</layout>

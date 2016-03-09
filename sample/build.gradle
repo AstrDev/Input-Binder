@@ -1,12 +1,4 @@
-apply plugin: 'com.android.library'
-
-ext {
-	PUBLISH_GROUP_ID = 'com.artufimtcev'
-	PUBLISH_ARTIFACT_ID = 'input-binder'
-	PUBLISH_VERSION = '0.0.1'
-}
-
-apply from: '../release.gradle'
+apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 23
@@ -17,12 +9,12 @@ android {
 	}
 
 	defaultConfig {
-		minSdkVersion 8
+		applicationId "com.astrdev.inputbindersample"
+		minSdkVersion 14
 		targetSdkVersion 23
 		versionCode 1
-		versionName PUBLISH_VERSION
+		versionName "1.0"
 	}
-
 	buildTypes {
 		release {
 			minifyEnabled false
@@ -35,4 +27,6 @@ dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 	testCompile 'junit:junit:4.12'
 	compile 'com.android.support:appcompat-v7:23.2.0'
+	compile 'cz.kinst.jakub:viewmodelbinding:0.8.2'
+	compile project(':lib')
 }
