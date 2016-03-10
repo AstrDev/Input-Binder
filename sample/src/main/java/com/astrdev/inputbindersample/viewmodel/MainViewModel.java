@@ -1,8 +1,9 @@
 package com.astrdev.inputbindersample.viewmodel;
 
 import android.databinding.Bindable;
+import android.util.Log;
+import android.view.View;
 
-import com.astrdev.inputbindersample.BR;
 import com.astrdev.inputbindersample.databinding.ActivityMainBinding;
 import com.astrdev.inputbindersample.entity.UserEntity;
 
@@ -10,10 +11,6 @@ import cz.kinst.jakub.viewmodelbinding.ViewModel;
 
 
 public class MainViewModel extends ViewModel<ActivityMainBinding> {
-
-	public static final String INPUT_NAME = "name";
-	public static final String INPUT_SURNAME = "surname";
-	public static final String INPUT_AGE = "age";
 
 	private UserEntity mUserEntity = new UserEntity();
 
@@ -38,24 +35,32 @@ public class MainViewModel extends ViewModel<ActivityMainBinding> {
 
 	@Bindable
 	public String getAge() {
-		return Integer.toString(mUserEntity.getAge());
+		return mUserEntity.getAge() == UserEntity.AGE_UNDEFINED ? "Undefined" : Integer.toString(mUserEntity.getAge());
 	}
 
 
-	public void setName(String name) {
-		mUserEntity.setName(name);
-		notifyPropertyChanged(BR.name);
+	@Bindable
+	public String getAndroidDeveloper() {
+		if(mUserEntity.isAndroidDeveloper()) {
+			return "The person is an android developer";
+		} else {
+			return "The person is not an android developer";
+		}
 	}
 
 
-	public void setSurname(String surname) {
-		mUserEntity.setSurname(surname);
-		notifyPropertyChanged(BR.surname);
+	public UserEntity getUser() {
+		return mUserEntity;
 	}
 
 
-	public void setAge(String age) {
-		mUserEntity.setAge(age);
-		notifyPropertyChanged(BR.age);
+	public void submit(View v) {
+		// Here you have access to all user input from your entity
+		Log.d("InputBinder", "User name: " + mUserEntity.getName());
+		Log.d("InputBinder", "User surname: " + mUserEntity.getSurname());
+		Log.d("InputBinder", "User age: " + mUserEntity.getAge());
+		Log.d("InputBinder", "User is an android developer: " + (mUserEntity.isAndroidDeveloper() ? "yes" : "no"));
+		notifyChange();
+		getBinding().activityMainOutput.setVisibility(View.VISIBLE);
 	}
 }

@@ -7,49 +7,87 @@
 		<import type="com.astrdev.inputbindersample.viewmodel.MainViewModel"/>
 	</data>
 
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				  android:layout_width="match_parent"
-				  android:layout_height="match_parent"
-				  android:orientation="vertical">
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center_horizontal"
+		android:orientation="vertical"
+		android:padding="16dp">
 
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:hint="User Name"
-			app:object="@{viewModel}"
-			app:property='@{"name"}'/>
+			app:inputObject="@{viewModel.user}"
+			app:inputProperty='@{"name"}'/>
 
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:hint="User Surname"
-			app:object="@{viewModel}"
-			app:property='@{"surname"}'/>
+			app:inputObject="@{viewModel.user}"
+			app:inputProperty='@{"surname"}'/>
 
 		<EditText
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:hint="User Age"
-			app:object="@{viewModel}"
-			app:property='@{"age"}'
+			app:inputObject="@{viewModel.user}"
+			app:inputProperty='@{"age"}'
 			android:inputType="numberDecimal"/>
 
+		<Switch
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Is android developer"
+			app:inputObject="@{viewModel.user}"
+			app:inputProperty='@{"androidDeveloper"}'/>
 
-		<TextView
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="@{viewModel.submit}"
+			android:text="Send"/>
+
+
+		<LinearLayout
+			android:id="@+id/activity_main_output"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@{viewModel.name}"/>
+			android:gravity="center_horizontal"
+			android:orientation="vertical"
+			android:visibility="invisible">
 
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="Submitted Values"/>
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@{viewModel.surname}"/>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@{viewModel.name}"/>
 
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@{viewModel.surname}"/>
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@{viewModel.age}"/>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@{viewModel.age}"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:text="@{viewModel.androidDeveloper}"/>
+		</LinearLayout>
 	</LinearLayout>
 </layout>

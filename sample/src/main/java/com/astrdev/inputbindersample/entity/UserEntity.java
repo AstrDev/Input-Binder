@@ -5,9 +5,12 @@ import android.databinding.BaseObservable;
 
 public class UserEntity {
 
+	public static final int AGE_UNDEFINED = -1;
+
 	private String name;
 	private String surname;
-	private int age;
+	private int age = AGE_UNDEFINED;
+	private boolean androidDeveloper;
 
 
 	public int getAge() {
@@ -41,6 +44,20 @@ public class UserEntity {
 
 
 	public void setAge(String age) {
-		this.age = Integer.parseInt(age);
+		try {
+			this.age = Integer.parseInt(age);
+		} catch(Exception e) {
+			this.age = AGE_UNDEFINED;
+		}
+	}
+
+
+	public boolean isAndroidDeveloper() {
+		return androidDeveloper;
+	}
+
+
+	public void setAndroidDeveloper(boolean androidDeveloper) {
+		this.androidDeveloper = androidDeveloper;
 	}
 }

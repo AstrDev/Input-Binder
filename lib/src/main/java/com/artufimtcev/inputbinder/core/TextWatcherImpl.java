@@ -4,15 +4,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 
-class TextWatcherImpl implements TextWatcher {
+class TextWatcherImpl extends InputObjectHolder implements TextWatcher {
 
-	private Object mObject;
-	private String mProperty;
-
-
-	TextWatcherImpl(Object object, String property) {
-		this.mObject = object;
-		this.mProperty = property;
+	public TextWatcherImpl(Object target, String propertyName) {
+		super(target, propertyName);
 	}
 
 
@@ -22,7 +17,7 @@ class TextWatcherImpl implements TextWatcher {
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		ReflectionUtility.setValue(mObject, mProperty, s.toString());
+		setValue(s.toString());
 	}
 
 
