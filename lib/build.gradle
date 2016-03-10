@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
 	PUBLISH_GROUP_ID = 'com.artufimtcev'
 	PUBLISH_ARTIFACT_ID = 'input-binder'
-	PUBLISH_VERSION = '0.0.1'
+	PUBLISH_VERSION = '0.1.0'
 }
 
 apply from: '../release.gradle'
