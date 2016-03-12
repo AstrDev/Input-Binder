@@ -9,19 +9,18 @@ to your object with Android DataBinding. It's written as few BindingAdapter meth
 
 Add the dependency to your Gradle build file
 
-```
+```groovy
 compile 'com.artufimtcev:input-binder:0.1.0'
 ```
 
-### Maven
+and enable DataBinding
 
-```
-<dependency>
-  <groupId>com.artufimtcev</groupId>
-  <artifactId>input-binder</artifactId>
-  <version>0.1.0</version>
-  <type>pom</type>
-</dependency>
+```groovy 	
+android {
+	dataBinding {
+		enabled = true;
+	}
+}
 ```
 
 ## Example
@@ -30,7 +29,7 @@ A good approach is using this library with MVVM (Model View ViewModel) design pa
 
 First, declare some entity, which will hold the input:
 
-```
+```java
 public class User {
     
     private String name;
@@ -40,9 +39,9 @@ public class User {
 }
 ```
 
-Then declare a accessor in your ViewModel for the object:
+Then declare an accessor in your ViewModel for the object:
 
-```
+```java
 public class ViewModel {
     
     private User user;
@@ -58,7 +57,7 @@ Now all you need is to declare both `inputObject` and `inputProperty` in your XM
  - `inputObject` - Object where you want to pass user input
  - `inputProperty` - Name of property that will hold the value of user input
  
-```
+```xml
   <layout>
     <data>
       <variable
