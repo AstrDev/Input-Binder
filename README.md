@@ -1,7 +1,7 @@
 # Input-Binder
 
-Functionality of this library was added directly to DataBinding, so this library is completely redundant. :)
-For more information about it, you can check [this link](https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/)
+*Functionality of this library was added directly to DataBinding, so this library is completely redundant. :)
+For more information about it, you can check [this link](https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/)*
 
 InputBinder is a simple and light library that allows you to bind user input from views like EditText, CheckBox, etc.
 to your object with Android DataBinding. It's written as few BindingAdapter methods.
